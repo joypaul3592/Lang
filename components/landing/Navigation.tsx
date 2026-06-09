@@ -46,18 +46,14 @@ export function Navigation() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-border ${
-          scrolled ? "bg-[#0A0A0A]/90 backdrop-blur-xl border-b " : ""
+          scrolled ? "bg-background/50 backdrop-blur-xl border-b " : ""
         }`}
       >
         <div className="max-w-7xl mx-auto px-8 lg:px-16 h-16 flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center gap-3 group">
-            <div className="w-6 h-6 relative">
-              <div className="absolute inset-0 bg-[#C8955E] rotate-45 scale-75 group-hover:rotate-60 transition-transform duration-500" />
-              <div className="absolute inset-0 border border-[#C8955E]/50 rotate-12 group-hover:rotate-72 transition-transform duration-500 delay-75" />
-            </div>
             <span
-              className="text-white/90 text-sm font-medium tracking-[0.15em] uppercase"
+              className="text-sm font-medium tracking-[0.15em] uppercase"
               style={{ fontFamily: "var(--font-geist-mono)" }}
             >
               Sear & Co.
@@ -70,7 +66,7 @@ export function Navigation() {
               <a
                 key={item.label}
                 href={item.href}
-                className="text-white/40 hover:text-white/90 text-xs tracking-[0.12em] uppercase transition-colors duration-300"
+                className=" hover:opacity-80 text-xs tracking-[0.12em] uppercase transition-colors duration-300"
                 style={{ fontFamily: "var(--font-geist-mono)" }}
               >
                 {item.label}
