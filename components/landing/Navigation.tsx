@@ -6,9 +6,9 @@ import { ThemeToggle } from "@/components/ui";
 import Link from "next/link";
 
 const navItems = [
-  { label: "Brands", href: "#brands" },
-  { label: "Philosophy", href: "#philosophy" },
-  { label: "Story", href: "#story" },
+  { label: "Brands", href: "#showcase" },
+  { label: "Story", href: "#about" },
+  { label: "Philosophy", href: "#mission" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -17,6 +17,27 @@ export function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
   const cursorDot = useRef<HTMLDivElement>(null);
   const cursorRing = useRef<HTMLDivElement>(null);
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    if (!href.startsWith("#")) return;
+    e.preventDefault();
+    setMenuOpen(false);
+
+    // Wait for the mobile menu collapse to settle, then scroll manually so the
+    // layout change doesn't cancel the smooth scroll on touch devices.
+    requestAnimationFrame(() => {
+      const target = document.querySelector<HTMLElement>(href);
+      if (!target) return;
+      const navOffset = 64; // fixed navbar height (h-16)
+      const top =
+        target.getBoundingClientRect().top + window.scrollY - navOffset;
+      window.scrollTo({ top, behavior: "smooth" });
+      window.history.pushState(null, "", href);
+    });
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -49,9 +70,9 @@ export function Navigation() {
           scrolled ? "bg-background/50 backdrop-blur-xl border-b" : ""
         }`}
       >
-        <div className="max-w-7xl mx-auto px-8 lg:px-16 h-16 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 h-16 flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3 group">
+          <a href="#hero" className="flex items-center gap-3 group">
             <span
               className="text-sm font-medium tracking-[0.15em] uppercase"
               style={{ fontFamily: "var(--font-geist-mono)" }}
@@ -66,6 +87,7 @@ export function Navigation() {
               <a
                 key={item.label}
                 href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className=" hover:opacity-80 text-xs tracking-[0.12em] uppercase transition-colors duration-300"
                 style={{ fontFamily: "var(--font-geist-mono)" }}
               >
@@ -78,8 +100,8 @@ export function Navigation() {
           <div className="hidden md:flex items-center gap-6">
             <ThemeToggle />
             <Link
-              href="#brands"
-              className="group flex items-center gap-2 text-xs tracking-[0.12em] uppercase text-[#C8955E] border border-[#C8955E]/30 px-5 py-2.5 hover:border-[#C8955E]/80 hover:bg-[#C8955E]/5 transition-all duration-300"
+              href="#showcase"
+              className="group flex items-center gap-2 text-xs h-8 text-foreground border border-border rounded px-3.5 py-2 hover:border-primary/80 hover:bg-primary hover:text-white transition-all duration-300"
               style={{ fontFamily: "var(--font-geist-mono)" }}
             >
               Explore Brands
@@ -122,14 +144,14 @@ export function Navigation() {
           initial={false}
           animate={{ height: menuOpen ? "auto" : 0, opacity: menuOpen ? 1 : 0 }}
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="md:hidden overflow-hidden bg-[#0A0A0A] border-t border-white/5"
+          className="md:hidden overflow-hidden bg-background/30 backdrop-blur-xs border-t border-border/50"
         >
           <div className="px-8 py-6 flex flex-col gap-5">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                onClick={() => setMenuOpen(false)}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className="text-white/50 hover:text-white text-sm tracking-[0.15em] uppercase"
                 style={{ fontFamily: "var(--font-geist-mono)" }}
               >

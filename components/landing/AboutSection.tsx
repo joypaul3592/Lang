@@ -13,7 +13,7 @@ const itemVariants = {
 } as const;
 
 const stats = [
-  { value: "3", label: "Distinct Brands" },
+  { value: "2", label: "Distinct Brands" },
   { value: "12+", label: "Active Outlets" },
   { value: "200+", label: "Team Members" },
   { value: "50K+", label: "Customers Served" },
@@ -24,8 +24,8 @@ export default function AboutSection() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="about" className="py-28 lg:py-36 bg-black/4 ">
-      <div className="max-w-7xl mx-auto px-8 lg:px-12">
+    <section id="about" className="py-12 sm:py-28 lg:py-36 bg-black/4 ">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         {/* Main grid */}
         <motion.div
           ref={ref}
@@ -59,21 +59,21 @@ export default function AboutSection() {
               coming home.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-5">
-              Our portfolio spans three unique brands, each with its own
+              Our portfolio spans two unique brands, each with its own
               personality and culinary identity, but all sharing the same DNA:
               quality ingredients, skilled preparation, and a relentless
               commitment to the guest experience.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              From the fiery energy of Flame to the bold traditions of Redchili
-              and the refined ambiance of Sear &amp; Sizzle — we cover the full
-              spectrum of exceptional dining.
+              From the fiery energy of Flame to the bold traditions of Falme
+              Japanese Hibachi and the refined ambiance of Sear &amp; Sizzle —
+              we cover the full spectrum of exceptional dining.
             </p>
           </motion.div>
         </motion.div>
 
         {/* Stats strip */}
-        <div className="mt-24 grid grid-cols-2 lg:grid-cols-4 divide-x divide-reverse/5 border border-reverse/5">
+        <div className="mt-16 sm:mt-24 grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 lg:devide- divide-reverse/5 border border-reverse/5">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}

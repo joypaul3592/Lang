@@ -9,8 +9,8 @@ export default function MissionVisionSection() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="mission" className="py-28 lg:py-36 bg-black/20">
-      <div ref={ref} className="max-w-7xl mx-auto px-8 lg:px-12">
+    <section id="mission" className="py-12 sm:py-28 lg:py-36 ">
+      <div ref={ref} className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -30,8 +30,8 @@ export default function MissionVisionSection() {
             className="pb-14 lg:pb-0 lg:pr-16 xl:pr-24"
           >
             <div className="flex items-center gap-3 mb-7">
-              <div className="h-px w-6 bg-[#a67c2a]" />
-              <span className="text-[10px] font-bold tracking-[0.45em] uppercase text-[#a67c2a]">
+              <div className="h-px w-6 bg-primary" />
+              <span className="text-[10px] font-bold tracking-[0.45em] uppercase text-primary">
                 Mission
               </span>
             </div>
@@ -39,15 +39,16 @@ export default function MissionVisionSection() {
               What We Do Today.
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              To curate and grow a family of distinctive hospitality brands that
-              celebrate the art of food and dining. We are committed to sourcing
-              the finest ingredients, developing exceptional culinary talent,
-              and creating experiences that leave every guest wanting to return.
+              To build and grow a portfolio of distinctive hospitality brands
+              that elevate the art of dining. We are dedicated to sourcing
+              premium ingredients, developing world-class culinary talent, and
+              designing experiences that consistently exceed guest expectations.
             </p>
+
             <p className="text-muted-foreground leading-relaxed">
-              We operate with integrity, treat every team member like family,
-              and measure our success by the smiles we create — one meal at a
-              time.
+              We operate with integrity, value our people as our greatest
+              strength, and define success by the lasting impressions we create
+              with every guest experience.
             </p>
           </motion.div>
 
@@ -59,8 +60,8 @@ export default function MissionVisionSection() {
             className="pt-14 lg:pt-0 lg:pl-16 xl:pl-24"
           >
             <div className="flex items-center gap-3 mb-7">
-              <div className="h-px w-6 bg-[#a67c2a]" />
-              <span className="text-[10px] font-bold tracking-[0.45em] uppercase text-[#a67c2a]">
+              <div className="h-px w-6 bg-primary" />
+              <span className="text-[10px] font-bold tracking-[0.45em] uppercase text-primary">
                 Vision
               </span>
             </div>
@@ -68,16 +69,14 @@ export default function MissionVisionSection() {
               Where We Want to Be.
             </h3>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              To become the most celebrated hospitality group in the region —
-              recognized not just for the quality of our food, but for the
-              culture of excellence we build within every brand under our
-              portfolio.
+              To become a leading hospitality group recognized for creating
+              iconic dining brands defined by excellence, consistency, and
+              innovation across every experience we deliver.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              We envision a future where Sear &amp; Co. brands are synonymous
-              with trust, innovation, and the finest dining experiences — a
-              portfolio that grows without ever compromising on what matters
-              most.
+              We envision Sear & Co. as a portfolio of trusted, forward-thinking
+              restaurant brands that set new standards in hospitality while
+              remaining rooted in quality and craft.
             </p>
           </motion.div>
         </div>

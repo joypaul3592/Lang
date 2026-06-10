@@ -5,33 +5,33 @@ import { motion, useInView } from "framer-motion";
 const reasons = [
   {
     n: "01",
-    title: "Quality First",
-    desc: "We never compromise on ingredient quality, preparation standards, or service delivery — at every location, every day.",
+    title: "Uncompromising Quality",
+    desc: "We uphold the highest standards in ingredient sourcing, preparation, and service execution across every brand and location, every day.",
   },
   {
     n: "02",
-    title: "Customer Experience",
-    desc: "Every touchpoint is designed to make guests feel valued, comfortable, and genuinely eager to return.",
+    title: "Elevated Guest Experience",
+    desc: "Every interaction is intentionally designed to make guests feel valued, comfortable, and eager to return.",
   },
   {
     n: "03",
-    title: "Continuous Innovation",
-    desc: "Our culinary teams constantly evolve menus and concepts to stay ahead of dining trends and guest expectations.",
+    title: "Continuous Culinary Innovation",
+    desc: "Our teams continuously refine menus and concepts to anticipate evolving dining trends and exceed guest expectations.",
   },
   {
     n: "04",
-    title: "Multi-Brand Excellence",
-    desc: "Our portfolio approach lets us serve diverse palates and occasions under the same umbrella of excellence.",
+    title: "Multi-Brand Expertise",
+    desc: "Our portfolio approach enables us to serve diverse audiences and dining occasions while maintaining a consistent standard of excellence.",
   },
   {
     n: "05",
-    title: "Sustainable Growth",
-    desc: "We grow thoughtfully — building strong brand foundations before expanding, ensuring quality at every new location.",
+    title: "Sustainable Expansion",
+    desc: "We scale with intention — building strong operational and brand foundations before expanding into new markets.",
   },
   {
     n: "06",
-    title: "Proven Track Record",
-    desc: "Years of consistent delivery, a loyal customer base, and a reputation built through genuine hospitality.",
+    title: "Proven Hospitality Legacy",
+    desc: "A track record of consistent execution, loyal guests, and brand trust built through authentic hospitality experiences.",
   },
 ];
 
@@ -40,8 +40,8 @@ export default function WhyChooseSection() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="why" className="py-28 lg:py-36 bg-background">
-      <div ref={ref} className="max-w-7xl mx-auto px-8 lg:px-12">
+    <section id="why" className="py-12 sm:py-28 lg:py-36">
+      <div ref={ref} className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         <div className="grid lg:grid-cols-3 gap-0 mb-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -61,7 +61,7 @@ export default function WhyChooseSection() {
             {Array.from({ length: 3 }).map((_, row) => (
               <div
                 key={row}
-                className="grid grid-cols-2 divide-x divide-border"
+                className="grid sm:grid-cols-2 divide-x divide-y sm:divide-y-0  divide-border"
               >
                 {reasons.slice(row * 2, row * 2 + 2).map((r, col) => (
                   <motion.div

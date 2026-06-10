@@ -3,13 +3,13 @@ const quickLinks = [
   { label: "About Us", href: "#about" },
   { label: "Mission & Vision", href: "#mission" },
   { label: "Our Brands", href: "#brands" },
-  { label: "Contact", href: "#contact" },
 ];
 
 const brands = [
   { label: "Flame", href: "#brands" },
-  { label: "Redchili", href: "#brands" },
+  // { label: "Redchili", href: "#brands" },
   { label: "Sear & Sizzle", href: "#brands" },
+  { label: "Contact", href: "#contact" },
 ];
 
 const social = [
@@ -75,28 +75,25 @@ const social = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#04091c] text-white">
+    <footer className="">
       {/* Top strip */}
-      <div className="max-w-7xl mx-auto px-8 lg:px-12 border-b border-white/8 py-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 border-b border-border py-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
         <div className="leading-none">
           <div className="font-display text-2xl font-bold tracking-[0.22em]">
             SEAR
           </div>
-          <div className="font-display text-[9px] font-semibold text-[#a67c2a] tracking-[0.5em]">
+          <div className="font-display text-[9px] font-semibold text-primary tracking-[0.5em]">
             &amp;&nbsp;CO.
           </div>
         </div>
-        <p className="text-white/35 text-sm max-w-xs leading-relaxed">
-          A hospitality group dedicated to extraordinary dining across three
-          distinctive brands.
-        </p>
+
         <div className="flex gap-2">
           {social.map(({ label, href, svg }) => (
             <a
               key={label}
               href={href}
               aria-label={label}
-              className="w-8 h-8 border border-white/10 flex items-center justify-center text-white/35 hover:text-white hover:border-white/30 transition-all duration-200"
+              className="w-8 h-8 border border-border flex items-center justify-center  transition-all duration-200"
             >
               {svg}
             </a>
@@ -105,10 +102,10 @@ export default function Footer() {
       </div>
 
       {/* Main columns */}
-      <div className="max-w-7xl mx-auto px-8 lg:px-12 py-12 grid grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-12 grid grid-cols-2 lg:grid-cols-4 gap-10">
         {/* Quick Links */}
         <div>
-          <h4 className="text-[10px] font-semibold tracking-[0.4em] uppercase text-white/25 mb-6">
+          <h4 className="text-[10px] font-semibold tracking-[0.4em] uppercase text-muted-foreground mb-6">
             Quick Links
           </h4>
           <ul className="space-y-3">
@@ -116,7 +113,7 @@ export default function Footer() {
               <li key={label}>
                 <a
                   href={href}
-                  className="text-sm text-white/45 hover:text-white transition-colors duration-200"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
                 >
                   {label}
                 </a>
@@ -127,7 +124,7 @@ export default function Footer() {
 
         {/* Brands */}
         <div>
-          <h4 className="text-[10px] font-semibold tracking-[0.4em] uppercase text-white/25 mb-6">
+          <h4 className="text-[10px] font-semibold tracking-[0.4em] uppercase text-muted-foreground mb-6">
             Our Brands
           </h4>
           <ul className="space-y-3">
@@ -135,7 +132,7 @@ export default function Footer() {
               <li key={label}>
                 <a
                   href={href}
-                  className="text-sm text-white/45 hover:text-white transition-colors duration-200"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
                 >
                   {label}
                 </a>
@@ -146,10 +143,10 @@ export default function Footer() {
 
         {/* Contact */}
         <div>
-          <h4 className="text-[10px] font-semibold tracking-[0.4em] uppercase text-white/25 mb-6">
+          <h4 className="text-[10px] font-semibold tracking-[0.4em] uppercase text-muted-foreground mb-6">
             Contact
           </h4>
-          <ul className="space-y-3 text-sm text-white/45">
+          <ul className="space-y-3 text-sm text-muted-foreground">
             <li>hello@searandco.com</li>
             <li>+880 1XXX-XXXXXX</li>
             <li>Dhaka, Bangladesh</li>
@@ -158,10 +155,10 @@ export default function Footer() {
 
         {/* Office */}
         <div>
-          <h4 className="text-[10px] font-semibold tracking-[0.4em] uppercase text-white/25 mb-6">
+          <h4 className="text-[10px] font-semibold tracking-[0.4em] uppercase text-muted-foreground mb-6">
             Office Hours
           </h4>
-          <ul className="space-y-3 text-sm text-white/45">
+          <ul className="space-y-3 text-sm text-muted-foreground">
             <li>Sun – Thu</li>
             <li>9:00 AM – 6:00 PM</li>
           </ul>
@@ -169,11 +166,11 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="max-w-7xl mx-auto px-8 lg:px-12 border-t border-white/8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p className="text-white/20 text-xs tracking-wider">
+      <div className="max-w-7xl mx-auto px-8 lg:px-12 border-t border-border py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p className="text-muted-foreground text-xs tracking-wider">
           &copy; {new Date().getFullYear()} Sear &amp; Co. All rights reserved.
         </p>
-        <p className="text-white/12 text-xs tracking-wider">
+        <p className="text-muted-foreground text-xs tracking-wider">
           Flame &middot; Redchili &middot; Sear &amp; Sizzle
         </p>
       </div>

@@ -12,7 +12,7 @@ import WhyChooseSection from "@/components/landing/WhyChooseSection";
 
 export default function Home() {
   return (
-    <div className="grain">
+    <main>
       <Navigation />
       <HeroSection />
       <BuildBrand />
@@ -22,6 +22,6 @@ export default function Home() {
       <WhyChooseSection />
       <ContactSection />
       <Footer />
-    </div>
+    </main>
   );
 }

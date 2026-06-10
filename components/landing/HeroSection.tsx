@@ -7,21 +7,21 @@ const brands = [
   {
     num: "01",
     name: "Flame",
-    category: "Live-Fire Dining",
+    category: "Modern Japanese Hibachi Dining Experience",
     color: "#E85D26",
     locations: "4 loc.",
   },
-  {
-    num: "02",
-    name: "Redchili",
-    category: "Modern Asian Fusion",
-    color: "#C8182E",
-    locations: "5 loc.",
-  },
+  // {
+  //   num: "02",
+  //   name: "Redchili",
+  //   category: "Modern Asian Fusion",
+  //   color: "#C8182E",
+  //   locations: "5 loc.",
+  // },
   {
     num: "03",
     name: "Sear & Sizzle",
-    category: "Premium Steakhouse",
+    category: "Fire, Flavor, And Craftsmanship",
     color: "#C8955E",
     locations: "3 loc.",
   },
@@ -50,21 +50,21 @@ export function HeroSection() {
     >
       <motion.div
         style={{ y, opacity }}
-        className="relative z-10 flex-1 flex flex-col max-w-7xl mx-auto w-full px-8 lg:px-16 py-16 lg:py-24"
+        className="relative z-10 flex-1 flex flex-col max-w-7xl mx-auto w-full px-5 sm:px-8 py-8 lg:px-16 sm:py-16 lg:py-24"
       >
         {/* ── MAIN GRID ── */}
         <div className="flex-1 grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* LEFT — Headline + copy + CTA */}
-          <div>
+          <div className="relative">
             {/* Headline */}
             <h1
-              className="font-semibold leading-[1.05] tracking-tight mb-6"
+              className="font-semibold leading-[1.05] tracking-tight mb-6 z-10"
               style={{
                 fontSize: "clamp(2rem, 4.5vw, 3.8rem)",
                 fontFamily: "var(--font-geist-sans)",
               }}
             >
-              {["Building", "Exceptional", "Dining Brands."].map((line, i) => (
+              {["Beyond Food.", "Beyond Branding."].map((line, i) => (
                 <div key={line} className="overflow-hidden">
                   <motion.span
                     className="block"
@@ -76,17 +76,20 @@ export function HeroSection() {
                       ease: [0.16, 1, 0.3, 1],
                     }}
                   >
-                    {i === 2 ? (
+                    {i === 1 ? (
                       <>
                         <span className="text-transparent [-webkit-text-stroke:1px_var(--primary)]">
-                          Dining{" "}
+                          Beyond{" "}
                         </span>
-                        <span className="text-foreground">Brands.</span>
+                        <span className="text-foreground">Food.</span>
                       </>
                     ) : i === 0 ? (
-                      <span className="text-transparent [-webkit-text-stroke:1px_var(--primary)]">
-                        {line}
-                      </span>
+                      <>
+                        <span className="text-foreground">Beyond </span>
+                        <span className=" text-transparent [-webkit-text-stroke:1px_var(--primary)]">
+                          Food.
+                        </span>
+                      </>
                     ) : (
                       line
                     )}
@@ -102,8 +105,9 @@ export function HeroSection() {
               transition={{ duration: 0.8, delay: 0.75 }}
               className="text-muted-foreground leading-relaxed mb-10 max-w-lg"
             >
-              Sear & Co. creates and scales hospitality brands that redefine
-              modern dining through innovation, craftsmanship, and design.
+              From brand identity to guest experience, we build restaurant
+              brands that inspire loyalty, drive growth, and leave a lasting
+              impression.
             </motion.p>
 
             {/* CTAs */}
@@ -114,7 +118,7 @@ export function HeroSection() {
               className="flex items-center gap-5"
             >
               <a
-                href="#brands"
+                href="#showcase"
                 className="group inline-flex items-center gap-2.5 bg-primary text-primary-foreground text-xs font-medium tracking-widest uppercase px-6 py-3 hover:bg-primary/90 transition-colors duration-300"
                 style={{ fontFamily: "var(--font-geist-mono)" }}
               >
@@ -134,7 +138,7 @@ export function HeroSection() {
                 </svg>
               </a>
               <a
-                href="#story"
+                href="#about"
                 className="group inline-flex items-center gap-2 text-muted-foreground hover:text-foreground text-xs tracking-widest uppercase transition-colors duration-300"
                 style={{ fontFamily: "var(--font-geist-mono)" }}
               >
@@ -143,8 +147,23 @@ export function HeroSection() {
               </a>
             </motion.div>
 
+            <div
+              className="
+          absolute inset-0
+          bg-[repeating-linear-gradient(315deg,var(--primary)_0,var(--primary)_1px,transparent_0,transparent_50%)]
+          bg-size-[10px_10px]
+          bg-fixed
+          opacity-10
+          z-0
+          mask-l-from-30%
+          mask-r-from-30%
+          mask-t-from-30%
+          mask-b-from-30%
+        "
+            />
+
             {/* Stats */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 1.1 }}
@@ -166,7 +185,7 @@ export function HeroSection() {
                   </div>
                 </div>
               ))}
-            </motion.div>
+            </motion.div> */}
           </div>
 
           {/* RIGHT — Brand cards */}
@@ -176,7 +195,7 @@ export function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="text-muted-foreground text-xs tracking-[0.22em] uppercase mb-8"
+              className="text-muted-foreground text-xs tracking-[0.22em] uppercase sm:mb-5"
             >
               Our Brands
             </motion.p>
@@ -255,7 +274,7 @@ export function HeroSection() {
               className="flex items-center justify-between mt-7"
             >
               <span className="text-muted-foreground text-xs tracking-[0.18em] uppercase">
-                Portfolio — 2018–Present
+                Portfolio — 2020–Present
               </span>
               <div className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
@@ -263,7 +282,7 @@ export function HeroSection() {
                   className="text-muted-foreground text-xs tracking-[0.14em] uppercase"
                   style={{ fontFamily: "var(--font-geist-mono)" }}
                 >
-                  3 Active Brands
+                  2 Active Brands
                 </span>
               </div>
             </motion.div>

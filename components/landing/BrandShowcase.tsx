@@ -3,49 +3,62 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
-const showcaseItems = [
+type ShowcaseItem = {
+  id: string;
+  brand: string;
+  category: string;
+  year: string;
+  desc: string;
+  color: string;
+  locations: string;
+  tags: string[];
+  url?: string;
+};
+
+const showcaseItems: ShowcaseItem[] = [
   {
     id: "01",
     brand: "Flame",
-    category: "Live-Fire Dining",
+    category: "Japanese Hibachi & Sushi",
     year: "2018",
-    desc: "Where fire is the chef. A primal, visceral dining concept that turns ancient cooking into modern theatre.",
+    desc: "Chicken, beef, salmon, shrimp, or tofu—each freshly prepared and served with a vibrant mix of seasonal vegetables, paired with your choice of perfectly cooked rice or noodles for a complete and satisfying meal.",
     color: "#E85D26",
     locations: "4 Locations",
-    tags: ["Fire Cuisine", "Open Kitchen", "Craft Cocktails"],
+    tags: ["Hibachi", "Sushi Bar", "Teppanyaki"],
+    url: "https://www.flamejapanesehibachi.com/",
   },
-  {
-    id: "02",
-    brand: "Redchili",
-    category: "Modern Asian Fusion",
-    year: "2020",
-    desc: "Contemporary interpretations of Asian spice culture. Sophisticated without losing the soul of the source.",
-    color: "#C8182E",
-    locations: "5 Locations",
-    tags: ["Pan-Asian", "Spice Heritage", "Modern Design"],
-  },
+  // {
+  //   id: "02",
+  //   brand: "Redchili",
+  //   category: "Modern Asian Fusion",
+  //   year: "2020",
+  //   desc: "Contemporary interpretations of Asian spice culture. Sophisticated without losing the soul of the source.",
+  //   color: "#C8182E",
+  //   locations: "5 Locations",
+  //   tags: ["Pan-Asian", "Spice Heritage", "Modern Design"],
+  // },
   {
     id: "03",
     brand: "Sear & Sizzle",
-    category: "Premium Steakhouse",
+    category: "Hibachi, Burgers & Wings",
     year: "2022",
-    desc: "A devotion to prime cuts, expert preparation, and an environment that honors the ritual of a great meal.",
+    desc: "Bold flavors from the flat-top grill—featuring sizzling hibachi plates, handcrafted burgers, and saucy wings made to satisfy everyday cravings with rich, crave-worthy taste.",
     color: "#C8955E",
     locations: "3 Locations",
-    tags: ["Prime Beef", "Fine Dining", "Wine Program"],
+    tags: ["Hibachi", "Smash Burgers", "Wings"],
   },
 ];
 
-function ShowcaseCard({
-  item,
-  index,
-}: {
-  item: (typeof showcaseItems)[0];
-  index: number;
-}) {
+function ShowcaseCard({ item, index }: { item: ShowcaseItem; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-5%" });
   const [hovered, setHovered] = useState(false);
+
+  const handleOpen = () => {
+    if (item.url) {
+      window.open(item.url, "_blank", "noopener,noreferrer");
+    }
+  };
 
   return (
     <motion.article
@@ -55,7 +68,18 @@ function ShowcaseCard({
       transition={{ duration: 1, delay: index * 0.12, ease: [0.16, 1, 0.3, 1] }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="group relative overflow-hidden cursor-pointer border-r last:border-0 dark:border-border/50 border-black/5"
+      onClick={handleOpen}
+      role={item.url ? "link" : undefined}
+      tabIndex={item.url ? 0 : undefined}
+      onKeyDown={(e) => {
+        if (item.url && (e.key === "Enter" || e.key === " ")) {
+          e.preventDefault();
+          handleOpen();
+        }
+      }}
+      className={`group relative overflow-hidden border-r last:border-0 dark:border-border/50 border-black/5 ${
+        item.url ? "cursor-pointer" : "cursor-default"
+      }`}
     >
       {/* Color sweep on hover */}
       <motion.div
@@ -110,9 +134,9 @@ function ShowcaseCard({
 
         {/* Brand name */}
         <h3
-          className={`font-semibold leading-none tracking-[-0.03em] mb-4 transition-colors duration-300 ${hovered ? item.color : "text-foreground"}`}
+          className="font-semibold leading-none tracking-[-0.03em] text-2xl md:text-3xl mb-4 transition-colors duration-300 text-foreground"
           style={{
-            fontSize: "clamp(1rem, 2.5vw, 2.5rem)",
+            color: hovered ? item.color : undefined,
             fontFamily: "var(--font-geist-sans)",
           }}
         >
@@ -169,7 +193,7 @@ export function BrandShowcase() {
       id="showcase"
       className="py-16 lg:py-24 relative overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-8 lg:px-16">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16">
         {/* Header */}
         <div className="mb-5 lg:mb-10 max-w-xl">
           <div className="overflow-hidden mb-6">
@@ -199,7 +223,7 @@ export function BrandShowcase() {
         </div>
 
         {/* Cards grid */}
-        <div className="grid lg:grid-cols-3 gap-px bg-reverse/4 ">
+        <div className="grid lg:grid-cols-2 gap-px bg-reverse/4 ">
           {showcaseItems.map((item, i) => (
             <ShowcaseCard key={item.id} item={item} index={i} />
           ))}

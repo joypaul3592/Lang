@@ -23,18 +23,9 @@ export function ContactSection() {
     <section
       ref={ref}
       id="contact"
-      className="sc-dark-section noise py-20 relative overflow-hidden"
+      className="noise py-5 sm:py-20 relative overflow-hidden"
     >
-      {/* Ambient gradient */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 40% 60% at 100% 0%, rgba(200,149,94,0.05) 0%, transparent 70%)",
-        }}
-      />
-
-      <div className="max-w-7xl mx-auto px-8 lg:px-16">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16">
         <div className="grid lg:grid-cols-12 gap-16 lg:gap-24">
           {/* Left — headline */}
           <div className="lg:col-span-6">
@@ -43,8 +34,7 @@ export function ContactSection() {
                 initial={{ y: "100%" }}
                 animate={isInView ? { y: "0%" } : {}}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="text-white/25 text-xs tracking-[0.3em] uppercase mb-8"
-                style={{ fontFamily: "var(--font-geist-mono)" }}
+                className="text-muted-foreground text-xs tracking-[0.3em] uppercase mb-8"
               >
                 Get in Touch
               </motion.p>
@@ -59,7 +49,7 @@ export function ContactSection() {
                   delay: 0.1,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="text-white font-semibold leading-[0.9] tracking-[-0.035em]"
+                className=" font-semibold leading-[0.9] tracking-[-0.035em]"
                 style={{
                   fontSize: "clamp(2.5rem, 6vw, 7rem)",
                   fontFamily: "var(--font-geist-sans)",
@@ -93,11 +83,10 @@ export function ContactSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.9, delay: 0.4 }}
-              className="text-white/35 leading-relaxed max-w-sm"
-              style={{ fontFamily: "var(--font-geist-sans)" }}
+              className="text-muted-foreground leading-relaxed max-w-sm"
             >
-              Whether you&lsquo;re a potential partner, investor, or someone who
-              simply appreciates the craft — we&lsquo;d love to hear from you.
+              Whether you are a prospective partner, investor, or industry
+              enthusiast, we would be pleased to hear from you.
             </motion.p>
           </div>
 
@@ -116,17 +105,17 @@ export function ContactSection() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.7, delay: 0.4 + i * 0.1 }}
-                  className="group py-6 border-b border-white/6 hover:border-white/12 transition-colors duration-300"
+                  className="group py-6 border-b border-muted-foreground/20 hover:border-muted-foreground/40 transition-colors duration-300"
                 >
                   <p
-                    className="text-white/30 text-xs tracking-[0.18em] uppercase mb-2"
+                    className="text-muted-foreground text-xs tracking-[0.18em] uppercase mb-2"
                     style={{ fontFamily: "var(--font-geist-mono)" }}
                   >
                     {link.label}
                   </p>
                   <a
                     href={`mailto:${link.value}`}
-                    className="text-white/70 group-hover:text-white text-sm transition-colors duration-300"
+                    className="text-muted-foreground/70 group-hover:text-foreground text-sm transition-colors duration-300"
                     style={{ fontFamily: "var(--font-geist-mono)" }}
                   >
                     {link.value}
@@ -142,7 +131,7 @@ export function ContactSection() {
               transition={{ duration: 1, delay: 0.7 }}
             >
               <p
-                className="text-white/20 text-xs tracking-[0.25em] uppercase mb-6"
+                className="text-muted-foreground text-xs tracking-[0.25em] uppercase mb-6"
                 style={{ fontFamily: "var(--font-geist-mono)" }}
               >
                 Follow
@@ -155,7 +144,7 @@ export function ContactSection() {
                     initial={{ opacity: 0 }}
                     animate={isInView ? { opacity: 1 } : {}}
                     transition={{ duration: 0.6, delay: 0.8 + i * 0.1 }}
-                    className="text-white/30 hover:text-white/70 text-xs tracking-[0.1em] uppercase transition-colors duration-300"
+                    className="text-muted-foreground/30 hover:text-muted-foreground/70 text-xs tracking-widest uppercase transition-colors duration-300"
                     style={{ fontFamily: "var(--font-geist-mono)" }}
                   >
                     {s.label}
