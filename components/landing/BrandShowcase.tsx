@@ -36,7 +36,13 @@ const showcaseItems = [
   },
 ];
 
-function ShowcaseCard({ item, index }: { item: (typeof showcaseItems)[0]; index: number }) {
+function ShowcaseCard({
+  item,
+  index,
+}: {
+  item: (typeof showcaseItems)[0];
+  index: number;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-5%" });
   const [hovered, setHovered] = useState(false);
@@ -49,8 +55,7 @@ function ShowcaseCard({ item, index }: { item: (typeof showcaseItems)[0]; index:
       transition={{ duration: 1, delay: index * 0.12, ease: [0.16, 1, 0.3, 1] }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="group relative overflow-hidden cursor-pointer"
-      style={{ background: "#111111" }}
+      className="group relative overflow-hidden cursor-pointer border-r last:border-0 dark:border-border/50 border-black/5"
     >
       {/* Color sweep on hover */}
       <motion.div
@@ -71,18 +76,18 @@ function ShowcaseCard({ item, index }: { item: (typeof showcaseItems)[0]; index:
         style={{ background: item.color }}
       />
 
-      <div className="relative z-10 p-10 lg:p-12 h-full flex flex-col">
+      <div className="relative z-10 p-4 lg:p-7 h-full flex flex-col">
         {/* Header row */}
         <div className="flex items-start justify-between mb-10">
           <div>
             <span
-              className="text-white/20 text-xs tracking-[0.2em] block mb-1"
+              className="text-muted-foreground text-xs tracking-[0.2em] block mb-1"
               style={{ fontFamily: "var(--font-geist-mono)" }}
             >
               {item.id}
             </span>
             <span
-              className="text-white/30 text-xs tracking-[0.15em] uppercase"
+              className="text-muted-foreground text-xs tracking-[0.15em] uppercase"
               style={{ fontFamily: "var(--font-geist-mono)" }}
             >
               {item.category}
@@ -91,28 +96,31 @@ function ShowcaseCard({ item, index }: { item: (typeof showcaseItems)[0]; index:
           <motion.div
             animate={{ rotate: hovered ? 45 : 0 }}
             transition={{ duration: 0.4 }}
-            className="w-6 h-6 border border-white/12 flex items-center justify-center"
+            className="w-6 h-6 border border-border flex items-center justify-center"
           >
             <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-              <path d="M1 9L9 1M9 1H3M9 1V7" stroke="rgba(255,255,255,0.4)" strokeWidth="1.2" />
+              <path
+                d="M1 9L9 1M9 1H3M9 1V7"
+                stroke="rgba(255,255,255,0.4)"
+                strokeWidth="1.2"
+              />
             </svg>
           </motion.div>
         </div>
 
         {/* Brand name */}
         <h3
-          className="font-semibold leading-none tracking-[-0.03em] mb-4 transition-colors duration-300"
+          className={`font-semibold leading-none tracking-[-0.03em] mb-4 transition-colors duration-300 ${hovered ? item.color : "text-foreground"}`}
           style={{
-            fontSize: "clamp(2rem, 3.5vw, 3.5rem)",
+            fontSize: "clamp(1rem, 2.5vw, 2.5rem)",
             fontFamily: "var(--font-geist-sans)",
-            color: hovered ? item.color : "rgba(255,255,255,0.9)",
           }}
         >
           {item.brand}
         </h3>
 
         <p
-          className="text-white/35 leading-relaxed mb-8 flex-1"
+          className="text-muted-foreground leading-relaxed mb-8 flex-1"
           style={{ fontFamily: "var(--font-geist-sans)", fontSize: "0.9rem" }}
         >
           {item.desc}
@@ -123,7 +131,7 @@ function ShowcaseCard({ item, index }: { item: (typeof showcaseItems)[0]; index:
           {item.tags.map((tag) => (
             <span
               key={tag}
-              className="border border-white/8 text-white/30 text-[10px] tracking-[0.1em] uppercase px-3 py-1.5"
+              className="border border-border text-muted-foreground text-[10px] tracking-widest uppercase px-3 py-1.5 rounded-full"
               style={{ fontFamily: "var(--font-geist-mono)" }}
             >
               {tag}
@@ -132,11 +140,17 @@ function ShowcaseCard({ item, index }: { item: (typeof showcaseItems)[0]; index:
         </div>
 
         {/* Footer row */}
-        <div className="flex items-center justify-between pt-6 border-t border-white/6">
-          <span className="text-white/25 text-xs tracking-[0.15em]" style={{ fontFamily: "var(--font-geist-mono)" }}>
+        <div className="flex items-center justify-between pt-6 border-t border-border">
+          <span
+            className="text-muted-foreground text-xs tracking-widest"
+            style={{ fontFamily: "var(--font-geist-mono)" }}
+          >
             {item.locations}
           </span>
-          <span className="text-white/20 text-xs tracking-[0.15em]" style={{ fontFamily: "var(--font-geist-mono)" }}>
+          <span
+            className="text-muted-foreground text-xs tracking-widest"
+            style={{ fontFamily: "var(--font-geist-mono)" }}
+          >
             Est. {item.year}
           </span>
         </div>
@@ -150,25 +164,20 @@ export function BrandShowcase() {
   const isInView = useInView(ref, { once: true, margin: "-8%" });
 
   return (
-    <section ref={ref} id="showcase" className="sc-dark-section py-32 lg:py-48 relative overflow-hidden">
-      {/* Section mark */}
-      <div className="absolute top-12 right-8 lg:right-16 flex items-center gap-2 opacity-30">
-        <span className="text-white/30 text-[10px] tracking-[0.25em] uppercase" style={{ fontFamily: "var(--font-geist-mono)" }}>
-          04 — Showcase
-        </span>
-        <div className="w-2 h-2 border border-white/20 rotate-45" />
-      </div>
-
-      <div className="max-w-[1440px] mx-auto px-8 lg:px-16">
+    <section
+      ref={ref}
+      id="showcase"
+      className="py-16 lg:py-24 relative overflow-hidden"
+    >
+      <div className="max-w-7xl mx-auto px-8 lg:px-16">
         {/* Header */}
-        <div className="mb-20 lg:mb-28 max-w-xl">
+        <div className="mb-5 lg:mb-10 max-w-xl">
           <div className="overflow-hidden mb-6">
             <motion.p
               initial={{ y: "100%" }}
               animate={isInView ? { y: "0%" } : {}}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="text-white/25 text-xs tracking-[0.3em] uppercase"
-              style={{ fontFamily: "var(--font-geist-mono)" }}
+              className="text-muted-foreground/80 text-xs tracking-[0.3em] uppercase "
             >
               Brand Showcase
             </motion.p>
@@ -178,15 +187,11 @@ export function BrandShowcase() {
               initial={{ y: "100%" }}
               animate={isInView ? { y: "0%" } : {}}
               transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-white font-semibold leading-[0.9] tracking-[-0.035em]"
-              style={{
-                fontSize: "clamp(2.2rem, 5vw, 6rem)",
-                fontFamily: "var(--font-geist-sans)",
-              }}
+              className=" font-semibold  text-4xl md:text-6xl tracking-tight leading-tighter"
             >
               The Portfolio
               <br />
-              <span style={{ color: "transparent", WebkitTextStroke: "1px rgba(200,149,94,0.4)" }}>
+              <span className="text-transparent [-webkit-text-stroke:1px_var(--primary)]">
                 in Detail.
               </span>
             </motion.h2>
@@ -194,7 +199,7 @@ export function BrandShowcase() {
         </div>
 
         {/* Cards grid */}
-        <div className="grid lg:grid-cols-3 gap-px bg-white/4">
+        <div className="grid lg:grid-cols-3 gap-px bg-reverse/4 ">
           {showcaseItems.map((item, i) => (
             <ShowcaseCard key={item.id} item={item} index={i} />
           ))}
@@ -209,11 +214,13 @@ export function BrandShowcase() {
         >
           <a
             href="#contact"
-            className="group inline-flex items-center gap-4 text-white/30 hover:text-white/60 text-xs tracking-[0.2em] uppercase transition-colors duration-300"
+            className="group inline-flex items-center gap-4 text-muted-foreground hover:text-foreground text-xs tracking-[0.2em] uppercase transition-colors duration-300"
             style={{ fontFamily: "var(--font-geist-mono)" }}
           >
             Interested in partnering with us?
-            <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+            <span className="group-hover:translate-x-1 transition-transform duration-300">
+              →
+            </span>
           </a>
         </motion.div>
       </div>

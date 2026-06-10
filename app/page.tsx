@@ -1,23 +1,27 @@
 import {
   Navigation,
   HeroSection,
-  ScrollStory,
   BrandShowcase,
-  PhilosophySection,
-  NewsletterSection,
   ContactSection,
 } from "@/components/landing";
+import AboutSection from "@/components/landing/AboutSection";
+import BuildBrand from "@/components/landing/BuildBrand";
+import Footer from "@/components/landing/Footer";
+import MissionVisionSection from "@/components/landing/MissionVisionSection";
+import WhyChooseSection from "@/components/landing/WhyChooseSection";
 
 export default function Home() {
   return (
     <div className="grain">
       <Navigation />
       <HeroSection />
-      <ScrollStory />
+      <BuildBrand />
       <BrandShowcase />
-      <PhilosophySection />
-      <NewsletterSection />
+      <AboutSection />
+      <MissionVisionSection />
+      <WhyChooseSection />
       <ContactSection />
+      <Footer />
     </div>
   );
 }

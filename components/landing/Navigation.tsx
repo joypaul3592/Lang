@@ -45,8 +45,8 @@ export function Navigation() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-border ${
-          scrolled ? "bg-background/50 backdrop-blur-xl border-b " : ""
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-border/50 ${
+          scrolled ? "bg-background/50 backdrop-blur-xl border-b" : ""
         }`}
       >
         <div className="max-w-7xl mx-auto px-8 lg:px-16 h-16 flex items-center justify-between">

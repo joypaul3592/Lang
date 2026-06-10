@@ -78,9 +78,15 @@ export function HeroSection() {
                   >
                     {i === 2 ? (
                       <>
-                        <span className="text-foreground">Dining </span>
-                        <span className="text-primary">Brands.</span>
+                        <span className="text-transparent [-webkit-text-stroke:1px_var(--primary)]">
+                          Dining{" "}
+                        </span>
+                        <span className="text-foreground">Brands.</span>
                       </>
+                    ) : i === 0 ? (
+                      <span className="text-transparent [-webkit-text-stroke:1px_var(--primary)]">
+                        {line}
+                      </span>
                     ) : (
                       line
                     )}
@@ -88,18 +94,6 @@ export function HeroSection() {
                 </div>
               ))}
             </h1>
-
-            {/* Divider */}
-            <motion.div
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{
-                duration: 0.9,
-                delay: 0.65,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="origin-left h-px bg-border mb-6"
-            />
 
             {/* Body */}
             <motion.p
@@ -154,7 +148,7 @@ export function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 1.1 }}
-              className="flex items-center gap-8 mt-8 pt-8 border-t border-border"
+              className="flex items-center gap-8 mt-8 pt-8 "
             >
               {stats.map(({ num, label }) => (
                 <div key={label}>
@@ -216,7 +210,7 @@ export function HeroSection() {
                 {/* Name + category */}
                 <div className="flex-1 min-w-0">
                   <div
-                    className="font-semibold leading-tight mb-1.5 opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                    className="font-semibold leading-tight mb-1.5 transition-opacity duration-300"
                     style={{
                       fontSize: "1.25rem",
                       fontFamily: "var(--font-geist-sans)",
@@ -225,14 +219,14 @@ export function HeroSection() {
                   >
                     {name}
                   </div>
-                  <div className="text-white/35 text-xs tracking-[0.12em] uppercase">
+                  <div className="text-muted-foreground text-xs tracking-[0.12em] uppercase">
                     {category}
                   </div>
                 </div>
 
                 {/* Locations + arrow */}
                 <div className="flex items-center gap-3 shrink-0">
-                  <span className="text-white/25 text-xs tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="text-muted-foreground text-xs tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     {locations}
                   </span>
                   <svg
@@ -260,13 +254,13 @@ export function HeroSection() {
               transition={{ duration: 0.8, delay: 1.05 }}
               className="flex items-center justify-between mt-7"
             >
-              <span className="text-white/20 text-xs tracking-[0.18em] uppercase">
+              <span className="text-muted-foreground text-xs tracking-[0.18em] uppercase">
                 Portfolio — 2018–Present
               </span>
               <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#C8955E]/60" />
+                <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
                 <span
-                  className="text-white/20 text-xs tracking-[0.14em] uppercase"
+                  className="text-muted-foreground text-xs tracking-[0.14em] uppercase"
                   style={{ fontFamily: "var(--font-geist-mono)" }}
                 >
                   3 Active Brands
