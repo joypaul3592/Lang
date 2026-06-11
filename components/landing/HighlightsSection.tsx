@@ -7,7 +7,7 @@ const highlights = [
     value: 3,
     suffix: "",
     label: "Distinct Brands",
-    sub: "Flame · Redchili · Sear & Sizzle",
+    sub: "Flame · Sear & Sizzle",
   },
   {
     value: 12,

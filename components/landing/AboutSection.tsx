@@ -24,7 +24,7 @@ export default function AboutSection() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="about" className="py-12 sm:py-28 lg:py-36 bg-black/4 ">
+    <section id="about" className="py-12 sm:py-28 bg-black/4 ">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         {/* Main grid */}
         <motion.div

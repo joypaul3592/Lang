@@ -49,10 +49,13 @@ export default function WhyChooseSection() {
             transition={{ duration: 0.7 }}
             className="lg:col-span-1 mb-12 lg:mb-0 lg:sticky lg:top-20 lg:self-start"
           >
-            <h2 className="font-display text-4xl lg:text-5xl font-bold text-foreground leading-tight">
+            <h2 className=" font-display font-medium text-4xl md:text-6xl tracking-tight">
               The Sear &amp;
               <br />
-              Co. Difference
+              Co.{" "}
+              <span className="text-transparent [-webkit-text-stroke:1px_var(--primary)]">
+                Difference
+              </span>
             </h2>
           </motion.div>
 
@@ -74,7 +77,7 @@ export default function WhyChooseSection() {
                     }}
                     className="p-7 lg:p-8"
                   >
-                    <span className="block font-display text-2xl font-bold text-border mb-5 select-none">
+                    <span className="block font-display text-2xl font-semibold mb-5 select-none text-primary">
                       {r.n}
                     </span>
                     <h3 className="text-sm font-semibold text-foreground mb-2.5 tracking-wide">

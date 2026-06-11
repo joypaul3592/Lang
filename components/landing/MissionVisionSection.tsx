@@ -9,15 +9,18 @@ export default function MissionVisionSection() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="mission" className="py-12 sm:py-28 lg:py-36 ">
+    <section id="mission" className="py-12 ">
       <div ref={ref} className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         <motion.h2
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease }}
-          className="font-display text-4xl lg:text-5xl xl:text-[3.5rem] font-bold text-foreground mb-16"
+          className=" font-display font-medium text-4xl md:text-6xl tracking-tight mb-16"
         >
-          Mission &amp; Vision
+          Mission &amp;{" "}
+          <span className="text-transparent [-webkit-text-stroke:1px_var(--primary)]">
+            Vision
+          </span>
         </motion.h2>
 
         {/* Two-column content */}

@@ -1,3 +1,7 @@
+import logo from "@/public/logo.png";
+import Image from "next/image";
+import Link from "next/link";
+
 const quickLinks = [
   { label: "Home", href: "#hero" },
   { label: "About Us", href: "#about" },
@@ -42,15 +46,15 @@ const social = [
       </svg>
     ),
   },
-  {
-    label: "X",
-    href: "#",
-    svg: (
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-      </svg>
-    ),
-  },
+  // {
+  //   label: "X",
+  //   href: "#",
+  //   svg: (
+  //     <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+  //       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  //     </svg>
+  //   ),
+  // },
   {
     label: "LinkedIn",
     href: "#",
@@ -77,15 +81,11 @@ export default function Footer() {
   return (
     <footer className="">
       {/* Top strip */}
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 border-b border-border py-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-        <div className="leading-none">
-          <div className="font-display text-2xl font-bold tracking-[0.22em]">
-            SEAR
-          </div>
-          <div className="font-display text-[9px] font-semibold text-primary tracking-[0.5em]">
-            &amp;&nbsp;CO.
-          </div>
-        </div>
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 border-b border-border py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 mask-l-from-95% mask-r-from-95%">
+        {/* Logo */}
+        <Link href="#hero" className="flex items-center gap-3 group">
+          <Image src={logo} alt="Logo" className="h-10 w-auto" />
+        </Link>
 
         <div className="flex gap-2">
           {social.map(({ label, href, svg }) => (
@@ -102,7 +102,7 @@ export default function Footer() {
       </div>
 
       {/* Main columns */}
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-12 grid grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-12 grid grid-cols-2 lg:grid-cols-4 gap-10 ">
         {/* Quick Links */}
         <div>
           <h4 className="text-[10px] font-semibold tracking-[0.4em] uppercase text-muted-foreground mb-6">
@@ -147,9 +147,9 @@ export default function Footer() {
             Contact
           </h4>
           <ul className="space-y-3 text-sm text-muted-foreground">
-            <li>hello@searandco.com</li>
-            <li>+880 1XXX-XXXXXX</li>
-            <li>Dhaka, Bangladesh</li>
+            <li>ask@searandco.com</li>
+            <li>+1 (954) 999-4191</li>
+            <li>3926 Coral Ridge Dr, Coral Springs, Florida 33065, USA</li>
           </ul>
         </div>
 
@@ -160,13 +160,13 @@ export default function Footer() {
           </h4>
           <ul className="space-y-3 text-sm text-muted-foreground">
             <li>Sun – Thu</li>
-            <li>9:00 AM – 6:00 PM</li>
+            <li>9:00 AM – 5:00 PM</li>
           </ul>
         </div>
       </div>
 
       {/* Bottom bar */}
-      <div className="max-w-7xl mx-auto px-8 lg:px-12 border-t border-border py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div className="max-w-7xl mx-auto px-8 lg:px-12 border-t border-border py-5 flex flex-col sm:flex-row items-center justify-between gap-3 mask-l-from-95% mask-r-from-95%">
         <p className="text-muted-foreground text-xs tracking-wider">
           &copy; {new Date().getFullYear()} Sear &amp; Co. All rights reserved.
         </p>

@@ -5,6 +5,9 @@ import { motion } from "framer-motion";
 import { ThemeToggle } from "@/components/ui";
 import Link from "next/link";
 
+import logo from "@/public/logo.png";
+import Image from "next/image";
+
 const navItems = [
   { label: "Brands", href: "#showcase" },
   { label: "Story", href: "#about" },
@@ -72,14 +75,9 @@ export function Navigation() {
       >
         <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 h-16 flex items-center justify-between">
           {/* Logo */}
-          <a href="#hero" className="flex items-center gap-3 group">
-            <span
-              className="text-sm font-medium tracking-[0.15em] uppercase"
-              style={{ fontFamily: "var(--font-geist-mono)" }}
-            >
-              Sear & Co.
-            </span>
-          </a>
+          <Link href="#hero" className="flex items-center gap-3 group">
+            <Image src={logo} alt="Logo" className="h-10 w-auto" />
+          </Link>
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-10">

@@ -4,16 +4,20 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 const contactLinks = [
-  { label: "General Inquiries", value: "hello@searandco.com", type: "email" },
-  { label: "Press & Media", value: "press@searandco.com", type: "email" },
-  { label: "Partnerships", value: "partners@searandco.com", type: "email" },
+  { label: "General Inquiries", value: "ask@searandco.com", type: "email" },
+  { label: "Contact Number", value: "+1 (954) 999-4191", type: "phone" },
+  {
+    label: "Address",
+    value: "3926 Coral Ridge Dr, Coral Springs, Florida 33065, USA",
+    type: "address",
+  },
 ];
 
-const socialLinks = [
-  { label: "Instagram", href: "#" },
-  { label: "LinkedIn", href: "#" },
-  { label: "Twitter / X", href: "#" },
-];
+// const socialLinks = [
+//   { label: "Instagram", href: "#" },
+//   { label: "LinkedIn", href: "#" },
+//   { label: "Twitter / X", href: "#" },
+// ];
 
 export function ContactSection() {
   const ref = useRef<HTMLElement>(null);
@@ -23,13 +27,13 @@ export function ContactSection() {
     <section
       ref={ref}
       id="contact"
-      className="noise py-5 sm:py-20 relative overflow-hidden"
+      className="noise py-5 sm:py-8 relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16">
         <div className="grid lg:grid-cols-12 gap-16 lg:gap-24">
           {/* Left — headline */}
-          <div className="lg:col-span-6">
-            <div className="overflow-hidden mb-3">
+          <div className="lg:col-span-6 ">
+            <div className="overflow-hidden ">
               <motion.p
                 initial={{ y: "100%" }}
                 animate={isInView ? { y: "0%" } : {}}
@@ -40,7 +44,7 @@ export function ContactSection() {
               </motion.p>
             </div>
 
-            <div className="overflow-hidden mb-2">
+            <div className="overflow-hidden pb-5">
               <motion.h2
                 initial={{ y: "110%" }}
                 animate={isInView ? { y: "0%" } : {}}
@@ -49,16 +53,19 @@ export function ContactSection() {
                   delay: 0.1,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className=" font-semibold leading-[0.9] tracking-[-0.035em]"
-                style={{
-                  fontSize: "clamp(2.5rem, 6vw, 7rem)",
-                  fontFamily: "var(--font-geist-sans)",
-                }}
+                className=" font-display font-medium text-4xl md:text-6xl tracking-tight "
               >
-                Let&lsquo;s Build
+                Let&lsquo;s Build br
+                <br />
+                <span
+                  className="text-transparent [-webkit-text-stroke:1px_var(--primary)]"
+                  style={{ fontSize: "inherit", fontFamily: "inherit" }}
+                >
+                  Together.
+                </span>
               </motion.h2>
             </div>
-            <div className="overflow-hidden mb-12">
+            {/* <div className="overflow-hidden mb-12">
               <motion.h2
                 initial={{ y: "110%" }}
                 animate={isInView ? { y: "0%" } : {}}
@@ -67,7 +74,7 @@ export function ContactSection() {
                   delay: 0.2,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="font-semibold leading-[1.3] tracking-[-0.035em]"
+                className="font-display font-medium text-4xl md:text-6xl tracking-tight leading-tight"
                 style={{
                   fontSize: "clamp(2.5rem, 6vw, 7rem)",
                   fontFamily: "var(--font-geist-sans)",
@@ -77,7 +84,7 @@ export function ContactSection() {
               >
                 Together.
               </motion.h2>
-            </div>
+            </div> */}
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -91,7 +98,7 @@ export function ContactSection() {
           </div>
 
           {/* Right — contact details */}
-          <div className="lg:col-span-5 lg:col-start-8">
+          <div className="lg:col-span-5 lg:col-start-8 ">
             {/* Contact list */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -125,7 +132,7 @@ export function ContactSection() {
             </motion.div>
 
             {/* Social */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 1, delay: 0.7 }}
@@ -151,7 +158,7 @@ export function ContactSection() {
                   </motion.a>
                 ))}
               </div>
-            </motion.div>
+            </motion.div> */}
           </div>
         </div>
       </div>
